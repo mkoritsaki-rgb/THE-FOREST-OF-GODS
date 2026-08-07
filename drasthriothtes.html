@@ -1,64 +1,105 @@
-<html>
+<!DOCTYPE html>
+<html lang="el">
 <head>
 <title> Δραστηριότητες </title>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
+<style>
+  .translate-box {
+    float: right;
+    margin: 10px;
+  }
+  .translate-box select {
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body class="oi_drasthriothtes">
 <header>
+<div class="translate-box">
+  <select id="langSelect" onchange="switchLanguage(this.value)">
+    <option value="el">Ελληνικά</option>
+    <option value="en">English</option>
+  </select>
+</div>
 <nav>
-<div class="logo"> The forest of Gods </div>
-  </div>
+  <div class="logo"> The forest of Gods </div>
   <div class="owner">
     <a href="../index.html">Μαίρη Κάντα</a>
   </div>   
-<ul>
-<li> <a href="index.html"> Αρχική </a> </li>
-<li> <a href="ta_dentrospita_mas.html"> Τα δεντρόσπιτα μας </a> </li>
-<li> <a href="drasthriothtes.html"> Δραστηριότητες </a> </li>
-<li> <a href="kostos.html"> Κόστος </a> </li>
-<li> <a href="epikinonia.html"> Επικοινωνία </a> </li>
-</ul>
-</nav> </header>
-<h1> Οι δραστηριότητες μας </h1>
+  <ul>
+    <li> <a href="index.html"> Αρχική </a> </li>
+    <li> <a href="ta_dentrospita_mas.html"> Τα δεντρόσπιτα μας </a> </li>
+    <li> <a href="drasthriothtes.html"> Δραστηριότητες </a> </li>
+    <li> <a href="kostos.html"> Κόστος </a> </li>
+    <li> <a href="epikinonia.html"> Επικοινωνία </a> </li>
+  </ul>
+</nav> 
+</header>
+
+<h1 id="page-title"> Οι δραστηριότητες μας </h1>
 <hr>
-<h2> Οι δραστηριότητες που προσφέρουμε <br/>
+<h2 id="page-subtitle"> Οι δραστηριότητες που προσφέρουμε <br/>
 είναι πολλές και ενδιαφέρουσες <br/>
  για κάθε ηλικία. </h2>
 
 <img src="ippasia.jpg">
-<p> <b> Ιππασία </b> Είναι μια εξαιρετική <br/>
+<p id="text-1"> <b> Ιππασία </b> Είναι μια εξαιρετική <br/>
 δραστηριότητα που συνδυάζει <br/>
  την άσκηση και την επαφή με <br/>
  τη φύση. Βελτιώνει την ισορροπία,<br/>
  τη στάση του σώματος και την αυτοπεποίθηση. <br/>
- Καλλιεργεί,επίσης,τον δεσμό ανθρώπου και αλόγου. </p>
- <img src="oreivasia.jpg">
- <p> <b> Ορειβασία </b> Μία υπέροχη πρόκληση <br/>
+ Καλλιεργεί, επίσης, τον δεσμό ανθρώπου και αλόγου. </p>
+
+<img src="oreivasia.jpg">
+<p id="text-2"> <b> Ορειβασία </b> Μία υπέροχη πρόκληση <br/>
  σώματος και πνεύματος. Ιδανική για την ενδυνάμωση <br/>
  της φυσικής αντοχής και της αύξησης της δύναμης. <br/>
  Η κατάκτηση της κορυφής χαρίζει ψυχική ευεξία. </p>
- <img src="pezoporia.jpg"> 
- <p> <b> Πεζοπορία </b> Είναι κατάλληλη <br/>
+
+<img src="pezoporia.jpg"> 
+<p id="text-3"> <b> Πεζοπορία </b> Είναι κατάλληλη <br/>
  για αυτούς που προτιμούν έναν πιο ήπιο <br/>
  και προσιτό τρόπο άσκησης. Βελτιώνει την <br/>
  καρδιοαναπνευστική λειτουργία, ελαχιστοποιεί<br/>
  το άγχος και βελτιώνει τη σύνδεση του ανθρώπου <br/>
  με το φυσικό περιβάλλον. </p>
- <img src="mountain_biking.jpg">
- <p> <b> Mountain Biking </b> Για τους περιπετειώδεις <br/>
+
+<img src="mountain_biking.jpg">
+<p id="text-4"> <b> Mountain Biking </b> Για τους περιπετειώδεις <br/>
  επισκέπτες του <b> “The Forest of the Gods” </b> <br/>
  είναι ιδανικό το mountain biking. Γυμνάζει όλο το σώμα,<br/>
  βελτιώνει την αντοχή και την ισορροπία, ενώ προσφέρει <br/>
  αίσθηση ελευθερίας και έντονη αδρεναλίνη. </p>
- </div>
- <footer>
- <p> &copy; 2026 The Forest of Gods </p>
- <p> Δημιουργία: <a href="../index.html">Μαίρη Κάντα</a> </p>
- </footer>
- </body>
- </html>
- 
 
+<footer>
+<p> &copy; 2026 The Forest of Gods </p>
+<p> Δημιουργία: <a href="../index.html">Μαίρη Κάντα</a> </p>
+</footer>
 
-
-
+<script>
+function switchLanguage(lang) {
+  if (lang === 'en') {
+    document.getElementById('page-title').innerText = "Our Activities";
+    document.getElementById('page-subtitle').innerHTML = "The activities we offer <br/>are many and interesting <br/>for every age.";
+    document.getElementById('text-1').innerHTML = "<b>Horseback Riding</b> It is an excellent <br/>activity that combines <br/>exercise and contact with <br/>nature. It improves balance,<br/> posture and self-confidence. <br/> It also cultivates the bond between human and horse.";
+    document.getElementById('text-2').innerHTML = "<b>Mountaineering</b> A wonderful challenge <br/> of body and spirit. Ideal for strengthening <br/> physical endurance and increasing strength. <br/> Conquering the peak brings mental well-being.";
+    document.getElementById('text-3').innerHTML = "<b>Hiking</b> It is suitable <br/> for those who prefer a milder <br/> and more accessible way of exercising. It improves <br/> cardiovascular function, minimizes<br/> stress and improves human connection <br/> with the natural environment.";
+    document.getElementById('text-4').innerHTML = "<b>Mountain Biking</b> For the adventurous <br/> visitors of <b>“The Forest of the Gods”</b> <br/> mountain biking is ideal. It exercises the whole body,<br/> improves endurance and balance, while offering <br/> a sense of freedom and intense adrenaline.";
+  } else {
+    document.getElementById('page-title').innerText = "Οι δραστηριότητες μας";
+    document.getElementById('page-subtitle').innerHTML = "Οι δραστηριότητες που προσφέρουμε <br/>είναι πολλές και ενδιαφέρουσες <br/> για κάθε ηλικία.";
+    document.getElementById('text-1').innerHTML = "<b> Ιππασία </b> Είναι μια εξαιρετική <br/>δραστηριότητα που συνδυάζει <br/> την άσκηση και την επαφή με <br/> τη φύση. Βελτιώνει την ισορροπία,<br/> τη στάση του σώματος και την αυτοπεποίθηση. <br/> Καλλιεργεί, επίσης, τον δεσμό ανθρώπου και αλόγου.";
+    document.getElementById('text-2').innerHTML = "<b> Ορειβασία </b> Μία υπέροχη πρόκληση <br/> σώματος και πνεύματος. Ιδανική για την ενδυνάμωση <br/> της φυσικής αντοχής και της αύξησης της δύναμης. <br/> Η κατάκτηση της κορυφής χαρίζει ψυχική ευεξία.";
+    document.getElementById('text-3').innerHTML = "<b> Πεζοπορία </b> Είναι κατάλληλη <br/> για αυτούς που προτιμούν έναν πιο ήπιο <br/> και προσιτό τρόπο άσκησης. Βελτιώνει την <br/> καρδιοαναπνευστική λειτουργία, ελαχιστοποιεί<br/> το άγχος και βελτιώνει τη σύνδεση του ανθρώπου <br/> με το φυσικό περιβάλλον.";
+    document.getElementById('text-4').innerHTML = "<b> Mountain Biking </b> Για τους περιπετειώδεις <br/> επισκέπτες του <b> “The Forest of the Gods” </b> <br/> είναι ιδανικό το mountain biking. Γυμνάζει όλο το σώμα,<br/> βελτιώνει την αντοχή και την ισορροπία, ενώ προσφέρει <br/> αίσθηση ελευθερίας και έντονη αδρεναλίνη.";
+  }
+}
+</script>
+</body>
+</html>
