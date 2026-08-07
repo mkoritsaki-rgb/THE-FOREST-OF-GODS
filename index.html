@@ -1,10 +1,32 @@
-<html>
+<!DOCTYPE html>
+<html lang="el">
 <head>
 <title> The Forest of Gods </title>
+<meta charset="UTF-8">
 <link rel="stylesheet" href="style.css">
+<style>
+  .translate-box {
+    float: right;
+    margin: 10px;
+  }
+  .translate-box select {
+    padding: 5px 10px;
+    font-size: 14px;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+</style>
 </head>
 <body>
 <header>
+<div class="translate-box">
+  <select id="langSelect" onchange="switchLanguage(this.value)">
+    <option value="el">Ελληνικά</option>
+    <option value="en">English</option>
+  </select>
+</div>
 <nav>
 <h1 class="page-title"> The Forest of Gods</h1>
   <div class="owner">
@@ -19,22 +41,26 @@
 <li> <a href="epikinonia.html"> Επικοινωνία </a> </li>
 </ul>
 </nav> </header>
+
 <section id="hero">
 <div class="hero-content">
-<h1> Διαμονή στο Λιτόχωρο </h1>
-<table border="0"; align="center";>
-<td>
-<tr> <img src="background.jpg" width="400" height="400">
-</tr> </td> </table>
+<h1 id="hero-title"> Διαμονή στο Λιτόχωρο </h1>
+<table border="0" align="center">
+<tr> 
+  <td>
+    <img src="background.jpg" width="400" height="400">
+  </td> 
+</tr> 
+</table>
 
-<p> Αγαπάτε τη φύση; Θέλετε να 
+<p id="hero-desc"> Αγαπάτε τη φύση; Θέλετε να 
 απομακρυνθείτε για λίγο μακριά 
 από τον θόρυβο της πόλης;
 Στο <b> Λιτόχωρο,</b> σάς προσφέρουμε
 μία ξεχωριστή διαμονή σε 
 δεντρόσπιτα μέσα στη φύση,
 με θέα στο βουνό και όλες 
-τις σύγχρονες ανέσεις.</br>
+τις σύγχρονες ανέσεις.<br>
  Ζήστε αυτή την μοναδική εμπειρία 
 της φιλοξενίας μαζί με το 
 ταίρι σας, τους φίλους σας ή τα παιδιά σας. 
@@ -43,13 +69,29 @@
  <b> ορειβασία, </b>
  <b> ιππασία </b> ή <b> mountain biking </b>.
  Μη περιμένετε στιγμή. </p>
- <button> Κλείστε τώρα την διαμονή σας! </button>
+ <button id="hero-btn"> Κλείστε τώρα την διαμονή σας! </button>
  </div>
  </section>
- <footer>
- <div class="footer-content">
- <p> &copy; 2026 The Forest of Gods </p>
-  <p> Δημιουργία: <a href="../index.html">Μαίρη Κάντα</a> </p>
- </footer>
- </body>
- </html>
+
+<footer>
+<div class="footer-content">
+<p> &copy; 2026 The Forest of Gods </p>
+ <p> Δημιουργία: <a href="../index.html">Μαίρη Κάντα</a> </p>
+</div>
+</footer>
+
+<script>
+function switchLanguage(lang) {
+  if (lang === 'en') {
+    document.getElementById('hero-title').innerText = "Accommodation in Litochoro";
+    document.getElementById('hero-desc').innerHTML = "Do you love nature? Do you want to get away <br>from the noise of the city for a while?<br>In <b>Litochoro,</b> we offer you a unique stay in treehouses amidst nature, with mountain views and all modern amenities.<br>Live this unique hospitality experience with your partner, your friends, or your children. Combine your stay with mountain activities, such as <b>hiking,</b> <b>mountaineering,</b> <b>horseback riding</b> or <b>mountain biking</b>. Don't wait a moment.";
+    document.getElementById('hero-btn').innerText = "Book your stay now!";
+  } else {
+    document.getElementById('hero-title').innerText = "Διαμονή στο Λιτόχωρο";
+    document.getElementById('hero-desc').innerHTML = "Αγαπάτε τη φύση; Θέλετε να απομακρυνθείτε για λίγο μακριά από τον θόρυβο της πόλης;<br>Στο <b> Λιτόχωρο,</b> σάς προσφέρουμε μία ξεχωριστή διαμονή σε δεντρόσπιτα μέσα στη φύση, με θέα στο βουνό και όλες τις σύγχρονες ανέσεις.<br>Ζήστε αυτή την μοναδική εμπειρία της φιλοξενίας μαζί με το ταίρι σας, τους φίλους σας ή τα παιδιά σας. Συνδυάστε τη διαμονή σας με δραστηριότητες στο βουνό, όπως <b> πεζοπορία, </b> <b> ορειβασία, </b> <b> ιππασία </b> ή <b> mountain biking </b>. Μη περιμένετε στιγμή.";
+    document.getElementById('hero-btn').innerText = "Κλείστε τώρα την διαμονή σας!";
+  }
+}
+</script>
+</body>
+</html>
